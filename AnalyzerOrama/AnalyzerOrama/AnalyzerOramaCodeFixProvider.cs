@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Composition;
@@ -20,15 +20,15 @@ namespace AnalyzerOrama
     {
         private const string title = "Use Array.Empty<T>";
 
-		public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(AnalyzerOramaAnalyzer.DiagnosticId);
+        public sealed override ImmutableArray<string> FixableDiagnosticIds => ImmutableArray.Create(AnalyzerOramaAnalyzer.DiagnosticId);
 
-		public sealed override FixAllProvider GetFixAllProvider() => WellKnownFixAllProviders.BatchFixer;
+        public sealed override FixAllProvider GetFixAllProvider() => WellKnownFixAllProviders.BatchFixer;
 
-		public sealed override async Task RegisterCodeFixesAsync(CodeFixContext context)
+        public sealed override async Task RegisterCodeFixesAsync(CodeFixContext context)
         {
             // get the reported diagnostic
             var diagnostic = context.Diagnostics.First();
-           
+
             //// Register a code action that will invoke the fix.
             //context.RegisterCodeFix(
             //    CodeAction.Create(

@@ -3,11 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyzerOrama", "AnalyzerOrama\AnalyzerOrama\AnalyzerOrama.csproj", "{A781B31B-63B1-46B6-9D54-40BB0BFFD548}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnalyzerOrama", "AnalyzerOrama\AnalyzerOrama\AnalyzerOrama.csproj", "{A781B31B-63B1-46B6-9D54-40BB0BFFD548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyzerOrama.Test", "AnalyzerOrama\AnalyzerOrama.Test\AnalyzerOrama.Test.csproj", "{60ACBCE5-6AD3-4BA2-8014-8507A2253828}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AnalyzerOrama.Test", "AnalyzerOrama\AnalyzerOrama.Test\AnalyzerOrama.Test.csproj", "{60ACBCE5-6AD3-4BA2-8014-8507A2253828}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnalyzerOrama.Vsix", "AnalyzerOrama\AnalyzerOrama.Vsix\AnalyzerOrama.Vsix.csproj", "{96A557B1-86CD-4A1B-8565-E8CC6A4C805D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B09A385A-E4D2-4533-AF90-C854D18FFE47}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
