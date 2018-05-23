@@ -55,22 +55,48 @@ namespace AnalyzerOrama.Test
             };
 
             VerifyCSharpDiagnostic(test, expected);
+        }
 
-            //        var fixtest = @"
-            //using System;
-            //using System.Collections.Generic;
-            //using System.Linq;
-            //using System.Text;
-            //using System.Threading.Tasks;
-            //using System.Diagnostics;
+        [TestMethod]
+        public void TestMethodFix2()
+        {
+            var test = @"
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
 
-            //namespace ConsoleApplication1
-            //{
-            //    class TYPENAME
-            //    {   
-            //    }
-            //}";
-            //        VerifyCSharpFix(test, fixtest);
+    namespace ConsoleApplication1
+    {
+        class Program
+        {   
+            public static void Main(string[] args)
+            {
+                var x = new string[0];
+            }
+        }
+    }";
+            var fixtest = @"
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
+
+    namespace ConsoleApplication1
+    {
+        class Program
+        {   
+            public static void Main(string[] args)
+            {
+                var x = new Array.Empty<string>();
+            }
+        }
+    }";
+            VerifyCSharpFix(test, fixtest);
         }
 
         [TestMethod]
@@ -106,6 +132,48 @@ namespace AnalyzerOrama.Test
             };
 
             VerifyCSharpDiagnostic(test, expected);
+        }
+
+        [TestMethod]
+        public void TestMethodFix3()
+        {
+            var test = @"
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
+
+    namespace ConsoleApplication1
+    {
+        class Program
+        {   
+            public static void Main(string[] args)
+            {
+                var y = new int[] { };
+            }
+        }
+    }";
+            var fixtest = @"
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+    using System.Diagnostics;
+
+    namespace ConsoleApplication1
+    {
+        class Program
+        {   
+            public static void Main(string[] args)
+            {
+                var y = new Array.Empty<int>();
+            }
+        }
+    }";
+            VerifyCSharpFix(test, fixtest);
         }
 
         [TestMethod]
