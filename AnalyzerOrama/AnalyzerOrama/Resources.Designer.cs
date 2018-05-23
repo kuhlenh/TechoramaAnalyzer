@@ -71,7 +71,7 @@ namespace AnalyzerOrama {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use Array.Empty&lt;{0}&gt;.
+        ///   Looks up a localized string similar to Use Array.Empty&lt;T&gt;.
         /// </summary>
         internal static string AnalyzerMessageFormat {
             get {

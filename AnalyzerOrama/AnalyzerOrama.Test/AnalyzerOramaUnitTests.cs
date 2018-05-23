@@ -46,11 +46,11 @@ namespace AnalyzerOrama.Test
             var expected = new DiagnosticResult
             {
                 Id = "AnalyzerOrama",
-                Message = String.Format("Use Array.Empty<{0}>", "TypeName"),
+                Message = "Use Array.Empty<T>",
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
                     new[] {
-                            new DiagnosticResultLocation("Test0.cs", 15, 23)
+                            new DiagnosticResultLocation("Test0.cs", 15, 25)
                         }
             };
 
@@ -97,11 +97,11 @@ namespace AnalyzerOrama.Test
             var expected = new DiagnosticResult
             {
                 Id = "AnalyzerOrama",
-                Message = String.Format("Use Array.Empty<{0}>", "TypeName"),
+                Message = "Use Array.Empty<T>",
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
                     new[] {
-                            new DiagnosticResultLocation("Test0.cs", 15, 23)
+                            new DiagnosticResultLocation("Test0.cs", 15, 25)
                         }
             };
 
