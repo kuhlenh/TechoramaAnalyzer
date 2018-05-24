@@ -80,7 +80,7 @@ namespace AnalyzerOrama {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use Array.Empty&lt;T&gt;.
+        ///   Looks up a localized string similar to Use Array.Empty&lt;T&gt;, Techorama 2018!.
         /// </summary>
         internal static string AnalyzerTitle {
             get {

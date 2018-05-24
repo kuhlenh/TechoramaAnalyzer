@@ -30,13 +30,35 @@ namespace AnalyzerOrama
             // get the reported diagnostic
             var diagnostic = context.Diagnostics.First();
 
-            //// Register a code action that will invoke the fix.
-            //context.RegisterCodeFix(
-            //    CodeAction.Create(
-            //        title: title,
-            //        createChangedDocument: c => //put callback here, 
-            //        equivalenceKey: title),
-            //    diagnostic);
+            // Register a code action that will invoke the fix.
+            context.RegisterCodeFix(
+                CodeAction.Create(
+                    title: title,
+                    createChangedDocument: c => MakeArrayEmpty(context.Document, diagnostic, c), 
+                    equivalenceKey: title),
+                diagnostic);
+        }
+
+        private async Task<Document> MakeArrayEmpty(Document document, Diagnostic diagnostic, CancellationToken c)
+        {
+            var root = await document.GetSyntaxRootAsync();
+            var semanticModel = await document.GetSemanticModelAsync();
+            var arrayCreationExpression = root.FindNode(diagnostic.Location.SourceSpan);
+
+            var x = Array.Empty<int>();
+            var generator = SyntaxGenerator.GetGenerator(document);
+
+            var operation = semanticModel.GetOperation(arrayCreationExpression);
+            var arrayTypeSymbol = (IArrayTypeSymbol)operation.Type;
+            var elementType = arrayTypeSymbol.ElementType;
+            
+            // genericname expression = Empty<int> (typeExpr, element type)
+            var genericName = generator.GenericName("Empty", elementType);
+            // type expression = Array
+            // member access expression = Array.Empty<int>
+            // invocation expression = Array.Empty<int>()
+
+            return document;
         }
     }
 }

@@ -126,7 +126,7 @@
     <comment>The format-able message the diagnostic displays.</comment>
   </data>
   <data name="AnalyzerTitle" xml:space="preserve">
-    <value>Use Array.Empty&lt;T&gt;</value>
+    <value>Use Array.Empty&lt;T&gt;, Techorama 2018!</value>
     <comment>The title of the diagnostic.</comment>
   </data>
 </root>

@@ -28,6 +28,25 @@ namespace AnalyzerOrama
         public override void Initialize(AnalysisContext context)
         {
             // register callback when analysis sees our node/symbol/operation
+            context.RegisterOperationAction(AnalyzeOperation, OperationKind.ArrayCreation);
+        }
+
+        private void AnalyzeOperation(OperationAnalysisContext context)
+        {
+            //get our array creation from the context
+            var arrayCreation = (IArrayCreationOperation)context.Operation;
+            //determine if it is a zero-length array
+            if (arrayCreation.DimensionSizes.Length == 1 &&
+                arrayCreation.DimensionSizes[0].ConstantValue.HasValue)
+            {
+                object dim = arrayCreation.DimensionSizes[0].ConstantValue.Value;
+                if (dim is 0)
+                {
+                    //if true, report diagnostic
+                    var diagnostic = Diagnostic.Create(Rule, arrayCreation.Syntax.GetLocation());
+                    context.ReportDiagnostic(diagnostic);
+                }
+            }
         }
     }
 }
