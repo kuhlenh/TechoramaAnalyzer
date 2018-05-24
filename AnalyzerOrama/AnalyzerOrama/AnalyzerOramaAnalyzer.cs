@@ -27,26 +27,7 @@ namespace AnalyzerOrama
 
         public override void Initialize(AnalysisContext context)
         {
-            // check if Array.Empty is even available to use
-
             // register callback when analysis sees our node/symbol/operation
-            context.RegisterOperationAction(AnalyzeOperation, OperationKind.ArrayCreation);
-        }
-
-        private void AnalyzeOperation(OperationAnalysisContext context)
-        {
-            var arrayCreation = (IArrayCreationOperation)context.Operation;
-
-            if (arrayCreation.DimensionSizes.Length == 1 && 
-                arrayCreation.DimensionSizes[0].ConstantValue.HasValue)
-            {
-                object dimensions = arrayCreation.DimensionSizes[0].ConstantValue.Value;
-                if (dimensions is 0)
-                {
-                    var diagnostic = Diagnostic.Create(Rule, arrayCreation.Syntax.GetLocation());
-                    context.ReportDiagnostic(diagnostic);
-                }
-            }
         }
     }
 }
