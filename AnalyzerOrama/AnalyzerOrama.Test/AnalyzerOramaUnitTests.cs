@@ -92,7 +92,7 @@ namespace AnalyzerOrama.Test
         {   
             public static void Main(string[] args)
             {
-                var x = new Array.Empty<string>();
+                var x = Array.Empty<string>();
             }
         }
     }";
@@ -169,7 +169,7 @@ namespace AnalyzerOrama.Test
         {   
             public static void Main(string[] args)
             {
-                var y = new Array.Empty<int>();
+                var y = Array.Empty<int>();
             }
         }
     }";
